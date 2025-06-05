@@ -22,7 +22,7 @@ import { UserModule } from './user/user.module';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: true,
-      debug: true,
+      //debug: true,
       playground: true,
     }),
 
