@@ -8,12 +8,13 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
+import appConfig from './config/app.config';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       envFilePath: '.env',
-      load: [dbConfig],
+      load: [dbConfig, appConfig],
       isGlobal: true,
     }),
     TypeOrmModule.forRootAsync({
