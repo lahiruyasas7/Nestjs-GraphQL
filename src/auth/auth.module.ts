@@ -21,7 +21,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     }),
     UserModule,
   ],
-  providers: [AuthService, AuthResolver, JwtService, JwtStrategy],
+  providers: [AuthService, AuthResolver, JwtStrategy], // don't use JwtService from @nestjs/jwt in side provide. it cause error
   exports: [AuthService],
 })
 export class AuthModule {}
