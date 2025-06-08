@@ -19,7 +19,7 @@ export class User {
   }
 
   @Field(() => Int)
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id: number;
 
   @Field()
