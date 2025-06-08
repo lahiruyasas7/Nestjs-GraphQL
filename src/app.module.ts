@@ -7,12 +7,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
+import appConfig from './config/app.config';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       envFilePath: '.env',
-      load: [dbConfig],
+      load: [dbConfig, appConfig],
       isGlobal: true,
     }),
     TypeOrmModule.forRootAsync({
@@ -22,11 +24,12 @@ import { UserModule } from './user/user.module';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: true,
-      debug: true,
+      //debug: true,
       playground: true,
     }),
 
     UserModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

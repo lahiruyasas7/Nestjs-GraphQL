@@ -10,7 +10,6 @@ import {
 import { User } from 'src/entities/user.entity';
 import { UserService } from './user.service';
 import { Logger } from '@nestjs/common';
-import { UpdateUserInput } from './dto/update-user.unput';
 
 @Resolver(() => User)
 export class UserResolver {
